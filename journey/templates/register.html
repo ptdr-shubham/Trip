@@ -1,0 +1,41 @@
+{% extends "base.html"%}
+{% block start %} 
+
+<section>
+    <div class="container col-6 p-5 card shadow-lg registration">
+        <h2><center>Register</center> </h2>
+        <hr>
+        <form class="row g-3 " method = "post">
+            {% csrf_token %} 
+            {% comment %} alert message {% endcomment %}
+            {% if messages %}
+                    <div class="alert alert-warning" role="alert">
+                        {% for message in messages %}
+                        {{ message }}
+                        {% endfor %}
+                    </div>
+            {% endif %}
+            <div class="form-group">
+                <label for="Fisrt Name" class="fw-bold">First name</label>
+                <input type="text" name="first_name" class="form-control border-2 border-dark-subtle"  aria-describedby="emailHelp" required placeholder="First name">
+            </div>
+            <div class="form-group">
+                <label for="Last Name" class="fw-bold">Last name</label>
+                <input type="text" name="last_name" class="form-control border-2 border-dark-subtle"  aria-describedby="emailHelp" required placeholder="Last name">
+            </div>
+                <div class="form-group">
+                  <label for="User name" class="fw-bold">User name</label>
+                  <input type="text" name="username" class="form-control border-2 border-dark-subtle"  aria-describedby="emailHelp" required placeholder="User name">
+                  <small  class="form-text text-muted">We'll never share your data with anyone else.</small>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1" class="fw-bold">Password</label>
+                  <input type="password" name="password" class="form-control border-2 border-dark-subtle" required placeholder="Password">
+                </div>
+                <p class="fw-bold"><em>Already have account <a href="/login/">Login</em></a></p>
+                <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+</section>
+
+{% endblock %}

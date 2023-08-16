@@ -1,0 +1,181 @@
+/* -------In Alphabatical order ------- */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* background-color: #6527BE; */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+.btn-bottom{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: 9rem;
+  /* padding-bottom: 5rem; */
+}
+
+.center{
+  margin-left:auto ;
+  margin-right: auto;
+  padding: auto;
+}
+
+#carouselExample{
+  background-color: #E7B10A;
+  text-align: center;
+  margin-top:2rem;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1.5rem;
+  width:90%;
+}
+
+.content {
+  /* Add some padding to ensure content doesn't overlap with the footer */
+  /* Set the flex-grow property to 1, so the content fills the remaining vertical space */
+  flex-grow: 1;
+}
+
+.footer{
+  
+  /* padding: 5% 15%; */
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* for a smooth transition for the footer to appear */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  /* Set the footer to be initially hidden */
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* body::after {
+  content: "";
+  Set the ::after pseudo-element to fill the remaining vertical space
+  flex-grow: 1;
+  display: block;
+ } */
+
+body.show-footer .footer {
+  /* Show the footer by changing opacity and visibility */
+  opacity: 1;
+  visibility: visible;
+}
+
+h2{
+      font-size: 3rem;
+  }
+
+
+.inline{
+  display: inline;
+}
+
+.login{
+    /* background-color: #FF9B9B; */
+    /* margin-bottom: 5rem; */
+    border-radius: 1.5rem;
+}
+
+.make-width100{
+  width: 100%;
+}
+
+.navbar{
+      /* width:90%; */
+      margin:0 auto;
+      padding: 8px;
+      /* background-color:#A076F9 ; */
+      background-color: #6527BE;
+      /* border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 1rem; */
+  }
+  
+.nav-link{
+      color: #fff;
+  }
+  
+.navbar-brand{
+      font-size: 2rem;
+      font-family: 'Pacifico';
+      color: #FFB100;
+  }
+  
+.nav-item{
+      padding: 0 18px;
+}
+
+.profileTop1 {
+  width: 75%;
+  background-color: #EA5455;
+  border-radius: 1.5rem;
+  margin: auto;
+}
+
+.profileTop2{
+  width: 80%;
+  background-color: #408E91;
+  border-radius: 1.5rem;
+  margin: auto;
+}
+
+.registration{
+   margin-top: 2rem;
+   margin-bottom: 2rem;
+   margin-left: auto;
+   margin-right: auto;
+   border-radius: 1.5rem;
+}
+
+.slide{
+  padding: auto;
+  padding-top: 3rem;
+}
+.slider-image{
+    height: 250px;
+}
+  
+.tagline{
+    /* background-color: #FF8989; */
+    background-color: #9681EB;
+    width: 90%;
+    margin-top:3rem;
+    margin-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4rem;
+    border-radius: 1.5rem;
+    padding: auto;
+}
+
+.top1{
+  width: 100%;
+}
+
+.top2 , .top4{
+  background-color: #ff4c68;
+  width: 100%;
+}
+
+.top2{
+  padding: 3rem;
+}
+
+.top3{
+  margin-bottom: 5rem;
+}
+
+.trip-btn{
+  width:100%;
+}
+
+.upper{
+  width:90%;
+}

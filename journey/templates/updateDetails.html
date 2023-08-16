@@ -1,0 +1,44 @@
+{% extends "base.html"%}
+{% block start %} 
+<div class="container col-6 card p-3 mt-5 shadow-lg">
+    <h2><center>Update Trip </center> </h2>
+    <hr>
+    <form class="row g-3 " method = "post">
+        {% csrf_token %} 
+        <div class="col-md-6">
+            <label for="inputCity" class="form-label">From City</label>
+            <input name = "trip_from" value ="{{trip.trip_from}}" type="text" required class="form-control">
+        </div>
+        <div class="col-md-6">
+            <label for="inputCity" class="form-label">To City</label>
+            <input name = "trip_to" value ="{{trip.trip_to}}"  type="text" required class="form-control" >
+        </div>
+        <div class="col-md-6">
+          <label for="IntermediateStop" class="form-label">Intermediate Stops</label>
+          <textarea name = "trip_intermediate_stops" class="form-control" required >{{trip.trip_intermediate_stops}}</textarea>
+        </div>
+        <div class="col-md-6">
+            <label for="TripDescription" class="form-label">Trip Description</label>
+            <textarea name="trip_description"  class="form-control" required >{{trip.trip_description}}</textarea>
+        </div>
+        <div class="col-md-4">
+            <label for="TripDistance" class="form-label">Trip Distance</label>
+            <input name = "trip_distance" value ="{{trip.trip_distance}}" type="number" required class="form-control" min="1" >
+        </div>
+        <div class="col-md-4">
+            <label for="TripCharge" class="form-label">Charge/K.M.</label>
+            <input name = "trip_charge" value ="{{trip.trip_charge}}" type="number" required class="form-control" min="1" >
+        </div>
+        <div class="col-md-4">
+            <label for="trip_user" class="form-label">Username</label>
+            <input name = "trip_user" type="text" value = {{request.user.username}} class="form-control" readonly="readonly">
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-success">Update</button>
+        </div>
+      </form>
+</div>
+<div class="row mt-5">
+    <a href="{% url 'leave' %}" class="btn btn-warning btn-lg col-6 m-auto">Leave Without Making Any Change</a>
+</div>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends "base.html"%}
+{% load static %}
+{% block start %} 
+<section class="row top1">
+  <div class="container-fluid tagline col-6">
+    <h2 class="fw-semibold">"Seamless Travels, Effortless Reports: Empowering Your Journey Management!"</h2>
+  </div>
+</section>
+<section class="top2" id="login">
+  <div class="container col-6 card p-3 mt-3 shadow-lg login" >
+    <h2><center>Sign In</center> </h2>
+    <hr>
+    <form class="row g-3 " method = "post">
+        {% csrf_token %} 
+            <div class="form-group col-10 center">
+                {% if messages %}
+                <div class="alert alert-warning" role="alert">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+              <label for="User name" class="fw-bold">User name</label>
+              <input type="text" name="username" class="form-control border-2 border-dark-subtle" required placeholder="User name">
+            </div>
+            <div class="form-group col-10 center">
+              <label for="exampleInputPassword1" class="fw-bold">Password</label>
+              <input type="password" name="password" required class="form-control border-2 border-dark-subtle" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <p class="center col-10 fw-bold"><em>Don't have account <a href="/register/">Register </em></a>
+            , or <em> <a href="/admin/" class="text-end">Admin Login</em></a></p>
+            
+            
+            <button type="submit" class="btn btn-primary col-10 center">Submit</button>
+      </form>
+  </div>
+</section>
+
+<section class="mt-4 top3 p-3" id="slider-carousel">
+  <div id="carouselExample" class="carousel slide " data-ride="carousel" >
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <h3>
+          "No more Excel headaches! Embrace our project's simplicity and ,<br>
+          take control of your trip reporting like a pro."
+        </h3>
+        <img src="{% static '/Images/C.png' %}" class="slider-image" style= height:"300px" width="270px"/>
+      </div>
+      <div class="carousel-item">
+        <h3>
+          "Navigate the digital world effortlessly with our user-friendly platform,<br>
+          tailored for all levels of tech expertise."
+        </h3>
+        <img src="{% static '/Images/A.png' %}" class="slider-image" style= height:"300px" width="300px"/>
+      </div>
+      <div class="carousel-item">
+        <h3>
+          "Leave the complexity to us! Enjoy seamless trip tracking and hassle-free report creation,<br>
+           regardless of your digital literacy."
+        </h3>
+        <img src="{% static '/Images/B.png' %}" class="slider-image" style= height:"300px" width="300px"/>
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExample"
+      data-bs-slide="prev"
+    >
+    <i class="fa-solid fa-arrow-left fa-xl" style="color: #000000;"></i>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExample"
+      data-bs-slide="next"
+    >
+    <i class="fa-solid fa-arrow-right fa-xl" style="color: #000000;"></i>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+
+{% endblock %}

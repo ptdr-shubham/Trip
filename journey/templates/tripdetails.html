@@ -1,0 +1,39 @@
+{% extends "base.html"%}
+{% block start %} 
+
+<hr>
+<h2 style="margin:10px 0 0 0;"> <center>Your Trips </center></h2>
+<hr>
+<div class = "col-8 " style="margin : auto;">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Sr. No</th>
+            <th scope="col">User</th>
+            <th scope="col">From</th>
+            <th scope="col">Destination</th>
+            <th scope="col">Distance</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for trip in trips %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+              <td>{{trip.trip_user}}</td>
+              <td>{{trip.trip_from}}</td>
+              <td>{{trip.trip_to}}</td>
+              <td>{{trip.trip_distance}}</td>
+              <td>
+                <a href="/update-trip/{{trip.id}}/" class="btn btn-outline-info">Update</a>
+                <a href="/delete-trip/{{trip.id}}/" type="button" class="btn btn-outline-danger">Delete</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+<div class="row mt-5 make-width100">
+  <a href="{% url 'download' %}" class="btn btn-warning btn-lg col-6 btn-bottom" filename="Trip_Report.xlsx" download="Trip_Report.xlsx">Download Report in .xlsx Format</a>
+</div>
+{% endblock %}

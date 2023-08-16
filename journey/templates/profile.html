@@ -1,0 +1,75 @@
+{% extends "base.html"%}
+{% block start %} 
+{% load static %}
+<section class="row top1">
+    <div class="container-fluid tagline col-6">
+      <h2 class="fw-semibold text-capitalize">“ Welcome , {{ user.first_name }} {{ user.last_name }} ! ”</h2>
+      <div class="">
+        <h5 class="mb-0 pb-0 fw-semibold"> &nbsp &nbsp &nbsp &nbsp logged in as {{ user.username }}</h5>
+      </div>
+    </div>
+  </section>
+<section class="row mt-10 mb-5 profileTop1">
+        <div class="container col-8 inline m-auto p-3">
+        <center><a href="#data" class="btn btn-warning m-2">Statistics</a>
+                <a href="#tripForm" class="btn btn-warning m-2">Add trip</a>
+                <a href="/home/" class="btn btn-warning m-2">View Trips</a>
+                {% comment %} <a href="/home/" class="btn btn-warning m-2">How to ?</a></center> {% endcomment %}
+        </div>
+</section>
+<hr>
+<section class="profileTop2 row" id="data">
+    <div class="container col-4">
+        <img src="{% static '/Images/Car.png' %}" class="slider-image" style= height:"300px" width="270px"/>
+    </div>
+    <div class="container col-8 pt-5">
+        <h3 class="fw-semibold">Total trips : {{ stats.tripCount }} </h3>
+        <h3 class="fw-semibold">Total Distance travelled : {{ stats.totalDistance }} km</h3>
+        <h3 class="fw-semibold">Longest Trip : {{ stats.longestTrip }} km</h3>
+        <h3 class="fw-semibold">Shortest Trip : {{ stats.shortestTrip }} km</h3>
+    </div>
+</section>
+<div class="container" id="tripForm">
+    <div class="container col-6 card p-3 mt-5 shadow-lg">
+        <h2><center>Add a Trip </center> </h2>
+        <hr>
+        <form class="row g-3 " method = "post">
+            {% csrf_token %} 
+            <div class="col-md-6">
+                <label for="inputCity" class="form-label">From City</label>
+                <input name = "trip_from" type="text" required  class="form-control" >
+            </div>
+            <div class="col-md-6">
+                <label for="inputCity" class="form-label">To City</label>
+                <input name = "trip_to" type="text" required  class="form-control" >
+            </div>
+            <div class="col-md-6">
+              <label for="IntermediateStop" class="form-label">Intermediate Stops</label>
+              <textarea name = "trip_intermediate_stops" required  class="form-control" >NA</textarea>
+            </div>
+            <div class="col-md-6">
+                <label for="TripDescription" class="form-label">Trip Description</label>
+                <textarea name="trip_description" required  class="form-control" >NA</textarea>
+            </div>
+            <div class="col-md-4">
+                <label for="TripDistance" class="form-label">Trip DesDistance</label>
+                <input name = "trip_distance" type="number" required class="form-control" min="1" >
+            </div>
+            <div class="col-md-4">
+              <label for="TripCharge" class="form-label">Charge/K.M.</label>
+              <input name = "trip_charge" type="number" required class="form-control" min="1" >
+            </div>
+            <div class="col-md-4">
+              <label for="trip_user" class="form-label">Username</label>
+              <input name = "trip_user"  value = {{request.user.username}} class="form-control" readonly="readonly">
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-success">Add</button>
+            </div>
+          </form>
+    </div>
+</div>
+<div class="row mt-3 btn-bottom">
+    <a href="/logout/" class="btn btn-warning btn-lg col-4 m-auto">Logout</a>
+</div>
+{% endblock %}
